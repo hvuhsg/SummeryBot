@@ -113,7 +113,6 @@ async def summarize(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     logging.info(f"Summarizing {len(messages)} messages for chat {update.effective_chat.title}")
-    logging.info("\n".join([str(message) for message in messages]))
 
     # Create summary
     try:
