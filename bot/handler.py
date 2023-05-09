@@ -29,7 +29,7 @@ async def summarize_messages(messages):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {openai_api_key}",
         }
-        payload = {"prompt": prompt, "temperature": 0.5, "max_tokens": 1024, "n": 1}
+        payload = {"prompt": prompt, "temperature": 0.5, "max_tokens": 400, "n": 1}
         async with session.post(
             "https://api.openai.com/v1/engines/text-davinci-003/completions",
             json=payload,
