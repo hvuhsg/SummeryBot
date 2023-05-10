@@ -25,5 +25,5 @@ python -m bot
 
 
 ## Example
-![group chat](/images/Screenshot%20from%202023-05-10%2000-55-31.png)
-![chat summary](/images/Screenshot%20from%202023-05-10%2000-56-23.png)
+![group chat](images/Screenshot%20from%202023-05-10%2000-55-31.png)
+![chat summary](images/Screenshot%20from%202023-05-10%2000-56-23.png)
