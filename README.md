@@ -1,7 +1,7 @@
 # SummeryBot
 Telegram bot that will summarize the conversation at any point for easy joining.
-
----
+Just add the bot to your group and that it.
+https://t.me/SummySumBot
 
 ## Quick start
 With Docker
@@ -22,3 +22,8 @@ pip install -r requirements.txt
 ```commandline
 python -m bot
 ```
+
+
+## Example
+![group chat](images/Screenshot%20from%202023-05-10%2000-55-31.png)
+![chat summary](images/Screenshot%20from%202023-05-10%2000-56-23.png)
