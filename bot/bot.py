@@ -16,7 +16,7 @@ def run_bot(on_message: Callable, on_start: Callable, on_sum: Callable):
         exit(1)
 
     current_path = Path(__file__).parent
-    persistence_path = current_path / "persistence.pickle"
+    persistence_path = current_path.parent / "data" / "persistence.pickle"
     logging.info(
         f"Bot setting up with persistence, state is stored at '{persistence_path.absolute()}'"
     )

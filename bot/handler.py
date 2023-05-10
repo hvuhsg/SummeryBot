@@ -81,10 +81,8 @@ async def save_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message_id = update.message.id
     sender = update.effective_user.name
     sent_at = update.message.date
-    member = await update.effective_chat.get_member(update.effective_user.id)
-    is_admin = member.status in (member.ADMINISTRATOR, member.ADMINISTRATOR)
 
-    message = Message(text, sender, sent_at, is_admin, message_id)
+    message = Message(text, sender, sent_at, message_id)
     add_message_to_storage(message, chat_storage)
 
     logging.info(
