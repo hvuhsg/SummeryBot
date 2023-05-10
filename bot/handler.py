@@ -136,7 +136,7 @@ async def summarize(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     command = update.message.text
-    start_link_id = command.removeprefix("/start ") if command != "/start" else None
+    start_link_id = command.replace("/start ", "") if command != "/start" else None
 
     if not start_link_id:
         await update.message.reply_text(
