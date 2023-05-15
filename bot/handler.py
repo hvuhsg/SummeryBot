@@ -63,6 +63,20 @@ def get_saved_messages(chat_storage: dict) -> List[Message]:
     return chat_storage.get("messages", [])
 
 
+def messages_limit(messages: List[Message], limit: int) -> List[Message]:
+    text = ""
+    allowed = []
+
+    for message in reversed(messages):
+        text += str(message)
+
+        if len(text) > limit:
+            return allowed
+
+        allowed.append(message)
+
+    return messages
+
 def create_keyboard(sum_id: str):
     keyboard = InlineKeyboardMarkup(
         [
@@ -110,11 +124,12 @@ async def summarize(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("See summery here", reply_markup=create_keyboard(sum_id))
         return
 
-    logging.info(f"Summarizing {len(messages)} messages for chat {update.effective_chat.title}")
+    messages_to_summarize = messages_limit(messages, 4000)
+    logging.info(f"Summarizing {len(messages_to_summarize)} messages for chat {update.effective_chat.title}")
 
     # Create summary
     try:
-        summary = await summarize_messages(messages)
+        summary = await summarize_messages(messages_to_summarize)
     except ConnectionError as e:
         logging.error(e)
         await update.message.reply_text(
